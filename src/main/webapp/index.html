@@ -12,7 +12,7 @@
     <p id = "response"></p>
     <button type="submit" name="button" onclick="location.href= './createAccount.html'">Create Account</button>
 
-    <table style="width:100%">
+    <table id="accountsTable" style="width:100%">
       <tr>
         <th>First name</th>
         <th>Last name</th>
@@ -35,6 +35,16 @@
           x.open("GET", url, false);
           x.send();
           document.getElementById("response").innerHTML = x.response;
+        }
+        function updateTable(){
+          var table = document.getElementById("myTable");
+          var row = table.insertRow(-1);
+
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+
+          cell1.innerHTML = "NEW CELL1";
+          cell2.innerHTML = "NEW CELL2";
         }
 
     </script>
