@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Menu</title>
+  </head>
+  <body>
+    <button type="submit" name="button" onclick="getAllAccounts()">Get All Accounts</button>
+    <br/>
+    <input id = "deleteInput" type="number" placeholder="Enter ID" alt="Enter ID"></input>
+    <button type="submit" name="button" onclick="deleteID()">Delete Account</button>
+    <p id = "response"></p>
+    <button type="submit" name="button" onclick="location.href= './createAccount.html'">Create Account</button>
+
+    <script>
+        function deleteID(){
+          var x = new XMLHttpRequest();
+          var url = "http://localhost:8080/accountapp/api/account/deleteAccount/"+deleteInput.value;
+          x.open("DELETE", url);
+          x.send();
+        }
+        function getAllAccounts(){
+          var x = new XMLHttpRequest();
+          var url = "http://localhost:8080/accountapp/api/account/getAllAccounts";
+          x.open("GET", url, false);
+          x.send();
+          document.getElementById("response").innerHTML = x.response;
+        }
+
+        //function httpRequest(keyword,url){
+        //  var x = new XMLHttpRequest();
+        //  x.open(keyword, url, false);
+        //  x.send();
+        //  return x.response
+        //}
+
+
+
+    </script>
+
+  </body>
+</html>
