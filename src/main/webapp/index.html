@@ -18,6 +18,7 @@
           var url = "http://localhost:8082/accountapp/api/account/deleteAccount/"+deleteInput.value;
           x.open("DELETE", url);
           x.send();
+          getAllAccounts;
         }
         function getAllAccounts(){
           var x = new XMLHttpRequest();
