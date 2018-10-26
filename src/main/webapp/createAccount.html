@@ -6,14 +6,13 @@
   </head>
   <body>
     <form class="" action="index.html" method="post">
+
       <input id = "firstNameInput" type="text" placeholder="Enter Forename" alt="Enter Forename"></input>
       <input id = "secondNameInput" type="text" placeholder="Enter Surname" alt="Enter Surname"></input>
       <input id = "accountNumberInput" type="text" placeholder="Enter Account Number" alt="Enter Account Number"></input>
 
-      <button type="submit" name="button" onclick="getVars()">Create Account</button>
-
-
     </form>
+    <button type="submit" name="button" onclick="getVars()">Create Account</button>
   </body>
 
   <script type="text/javascript">
@@ -21,7 +20,7 @@
       console.log(lName);
       var x = new XMLHttpRequest();
       var url = "http://localhost:8082/accountapp/api/account/createAccount";
-      x.open("POST", url, false);
+      x.open("POST", url, true);
       x.send(JSON.stringify({firstName:fName,secondName:lName,accountNumber:an}));
 
       location.href="./creationsuccess.html";
