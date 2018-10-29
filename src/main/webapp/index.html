@@ -24,14 +24,14 @@
     <script>
         function deleteID(){
           var x = new XMLHttpRequest();
-          var url = "http://localhost:8082/accountapp/api/account/deleteAccount/"+deleteInput.value;
+          var url = "http://localhost:8081/accountapp/api/account/deleteAccount/"+deleteInput.value;
           x.open("DELETE", url);
           x.send();
           getAllAccounts();
         }
         function getAllAccounts(){
           var x = new XMLHttpRequest();
-          var url = "http://localhost:8082/accountapp/api/account/getAllAccounts";
+          var url = "http://localhost:8081/accountapp/api/account/getAllAccounts";
           x.open("GET", url, false);
           x.send();
           document.getElementById("response").innerHTML = x.response;
