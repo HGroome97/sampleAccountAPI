@@ -18,7 +18,7 @@
   <script type="text/javascript">
     function createAccount(fName, lName, an){
       var x = new XMLHttpRequest();
-      var url = "http://localhost:8082/accountapp/api/account/createAccount";
+      var url = "http://localhost:8081/accountapp/api/account/createAccount";
       x.open("POST", url, true);
       x.send(JSON.stringify({firstName:fName,secondName:lName,accountNumber:an}));
 
