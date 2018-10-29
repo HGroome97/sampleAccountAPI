@@ -9,9 +9,14 @@
     <br/>
     <input id = "deleteInput" type="number" placeholder="Enter ID" alt="Enter ID"></input>
     <button type="submit" name="button" onclick="deleteID()">Delete Account</button>
+
+    <br/>
+    <input id = "getInput" type="number" placeholder="Enter ID" alt="Enter ID"></input>
+    <button type="submit" name="button" onclick="getID()">Get Account</button>
+
     <p id = "response"></p>
     <button type="submit" name="button" onclick="location.href= './createAccount.html'">Create Account</button>
-    <p>this is a TEST </p>
+
     <table id="accountsTable" style="width:100%">
       <tr>
         <th>First name</th>
@@ -29,6 +34,14 @@
           x.send();
           getAllAccounts();
         }
+        function getID(){
+          var x = new XMLHttpRequest();
+          var url = "http://localhost:8081/accountapp/api/account/getAccount/"+getInput.value;
+          x.open("GET", url, false);
+          x.send();
+          document.getElementById("response").innerHTML = x.response;
+        }
+
         function getAllAccounts(){
           var x = new XMLHttpRequest();
           var url = "http://localhost:8081/accountapp/api/account/getAllAccounts";

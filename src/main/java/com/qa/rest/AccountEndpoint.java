@@ -39,6 +39,13 @@ public class AccountEndpoint {
 	public String deleteAccount(@PathParam("id") Long id) {
 		return service.deleteAccount(id);
 	}
+	
+	@Path("/getAccount/{id}")
+	@GET
+	@Produces({ "application/json" })
+	public String getAccount(@PathParam("id") Long id) {
+		return service.getAccount(id);
+	}
 
 	public void setService(AccountService service) {
 		this.service = service;

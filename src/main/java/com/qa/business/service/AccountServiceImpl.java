@@ -25,7 +25,15 @@ public class AccountServiceImpl implements AccountService {
 		return repo.deleteAccount(id);
 	}
 
+	@Override
+	public String getAccount(Long id) {
+		return repo.getAccount(id);
+	}
+
+	
 	public void setRepo(AccountRepository repo) {
 		this.repo = repo;
 	}
+	
+	
 }

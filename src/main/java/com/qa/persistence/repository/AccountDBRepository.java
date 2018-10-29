@@ -52,6 +52,17 @@ public class AccountDBRepository implements AccountRepository {
 		}
 		return "{\"message\": \"account sucessfully deleted\"}";
 	}
+	
+	@Override
+	@Transactional(REQUIRED)
+	public String getAccount(Long id) {
+		Account accountInDB = findAccount(id);
+		if (accountInDB != null) {
+			return util.getJSONForObject(accountInDB);
+		}
+		return "{\"message\": \"account sucessfully pulled\"}";
+	}
+	
 
 	private Account findAccount(Long id) {
 		return manager.find(Account.class, id);
