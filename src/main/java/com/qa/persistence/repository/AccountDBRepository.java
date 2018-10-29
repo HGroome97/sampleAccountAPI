@@ -57,10 +57,7 @@ public class AccountDBRepository implements AccountRepository {
 	@Transactional(REQUIRED)
 	public String getAccount(Long id) {
 		Account accountInDB = findAccount(id);
-		if (accountInDB != null) {
-			return util.getJSONForObject(accountInDB);
-		}
-		return "{\"message\": \"account sucessfully pulled\"}";
+		return util.getJSONForObject(accountInDB);
 	}
 	
 
