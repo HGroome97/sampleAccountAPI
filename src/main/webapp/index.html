@@ -108,7 +108,7 @@
           var url = "http://localhost:8081/accountapp/api/account/deleteAccount/"+no;
           x.open("DELETE", url);
           x.send();
-          //document.getElementById("id: " + no + "").outerHTML = "";
+          document.getElementById("row" + no + "").outerHTML = "";
 
         }
     </script>
