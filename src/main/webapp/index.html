@@ -80,7 +80,7 @@
 
           var table = document.getElementById("data_table");
           var table_len = (table.rows.length) - 1;
-          var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td id='id_row" + table_len + "'>" + id + "</td><td id='fName_row" + table_len + "'>" + Forename + "</td><td id='sName_row" + table_len + "'>" + Surname + "</td><td id='accNum_row" + table_len + "'>" + AccNum + "</td><td><input type='button' id='edit_button" + table_len + "' value='Edit' class='edit' onclick='edit_row(" + table_len + ")'> <input type='button' id='save_button" + table_len + "' value='Save' class='save' onclick='save_row(" + table_len + ")'> <input type='button' value='Delete' class='delete' onclick='delete_row(" + table_len + ")'></td></tr>";
+          var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td id='id_row" + table_len + "'>" + id + "</td><td id='fName_row" + table_len + "'>" + Forename + "</td><td id='sName_row" + table_len + "'>" + Surname + "</td><td id='accNum_row" + table_len + "'>" + AccNum + "</td><td><input type='button' id='edit_button" + table_len + "' value='Edit' class='edit' onclick='edit_row(" + table_len + ")'> <input type='button' id='save_button" + table_len + "' value='Save' class='save' onclick='save_row(" + row + ")'> <input type='button' value='Delete' class='delete' onclick='delete_row(" + row + ")'></td></tr>";
 
 
           document.getElementById("Forename").value = "";
@@ -99,19 +99,17 @@
             var Surname = myObj[x].secondName;
             var AccNum = myObj[x].accountNumber;
             var table_len = (table.rows.length) - 1;
-            var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td id='id_row" + table_len + "'>" + id + "</td><td id='fName_row" + table_len + "'>" + Forename + "</td><td id='sName_row" + table_len + "'>" + Surname + "</td><td id='accNum_row" + table_len + "'>" + AccNum + "</td><td><input type='button' id='edit_button" + table_len + "' value='Edit' class='edit' onclick='edit_row(" + table_len + ")'> <input type='button' id='save_button" + table_len + "' value='Save' class='save' onclick='save_row(" + id_row + ")'> <input type='button' value='Delete' class='delete' onclick='delete_row(" + id_row + ")'></td></tr>";
+            var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td id='id_row" + table_len + "'>" + id + "</td><td id='fName_row" + table_len + "'>" + Forename + "</td><td id='sName_row" + table_len + "'>" + Surname + "</td><td id='accNum_row" + table_len + "'>" + AccNum + "</td><td><input type='button' id='edit_button" + table_len + "' value='Edit' class='edit' onclick='edit_row(" + table_len + ")'> <input type='button' id='save_button" + table_len + "' value='Save' class='save' onclick='save_row(" + id + ")'> <input type='button' value='Delete' class='delete' onclick='delete_row(" + id + ")'></td></tr>";
           }
         }
 
         function delete_row(no) {
-          var id = document.getElementById("id").value;
-
           var x = new XMLHttpRequest();
-          var url = "http://localhost:8081/accountapp/api/account/deleteAccount/"+deleteInput.value;
+          var url = "http://localhost:8081/accountapp/api/account/deleteAccount/"+no;
           x.open("DELETE", url);
           x.send();
-          document.getElementById("row" + no + "").outerHTML = "";
-        
+          document.getElementById("id: " + no + "").outerHTML = "";
+
         }
     </script>
 
